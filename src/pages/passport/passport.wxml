@@ -1,0 +1,13 @@
+<!--src/pages/passport.wxml-->
+<view class="flex column">
+  <view class="flex row">
+    <label class="labeltext">账号：</label>
+    <input bindinput="bindUserNameInput" placeholder="请输入账号" value="{{userUsername}}"></input>
+  </view>
+  <view class="flex row">
+    <label class="labeltext">密码：</label>
+    <input bindinput="bindUserPassInput" placeholder="请输入密码" password="true" value="{{userPass}}"></input>
+  </view>
+  <button bindtap="loginBtnTap">登录</button>
+  <button bindtap="registeBtnTap">注册</button>
+</view>
