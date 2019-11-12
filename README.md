@@ -45,7 +45,7 @@
 
 > 注意: 最后需要将 `@/project.config.demo.json` => `@/project.config.json` 
 
-在 `@/app.demo.js` 中, 需要对下面几个参数配置:
+在 `@/src/app.demo.js` 中, 需要对下面几个参数配置:
 
 ``` js
 async onLaunch() {
@@ -57,4 +57,4 @@ async onLaunch() {
     })
 }
 ```
-
+> 注意: 最后需要将 `@/src/app.demo.js` => `@/src/app.js`
