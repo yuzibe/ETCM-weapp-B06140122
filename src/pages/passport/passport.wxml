@@ -1,13 +1,26 @@
 <!--src/pages/passport.wxml-->
-<view class="flex column">
-  <view class="flex row">
-    <label class="labeltext">账号：</label>
-    <input bindinput="bindUserNameInput" placeholder="请输入账号" value="{{userUsername}}"></input>
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="backText">首页</view>
+  <view slot="content">工训登录</view>
+</cu-custom>
+
+<view class="padding text-center">
+  <view class="padding-lr bg-white padding">
+    <view class="solid-bottom padding">
+      <input bindinput="userUsernameInput" placeholder="请输入账号" value="{{userUsername}}"></input>
+    </view>
+    <view class="solid-bottom padding">
+      <input bindinput="userPassInput" placeholder="请输入密码" password="true" value="{{userPass}}"></input>
+    </view>
+    <view class="flex row center">
+      <view class="padding flex flex-direction" style="width=50%">
+        <button class="cu-btn bg-grey lg" bindtap="userLoginTap">登录</button>
+      </view>
+    </view>
+    <view class="flex row center">
+      <view class="padding flex flex-direction" style="width=50%">
+        <button class="cu-btn bg-grey lg" bindtap="userRegisteTap">注册</button>
+      </view>
+    </view>
   </view>
-  <view class="flex row">
-    <label class="labeltext">密码：</label>
-    <input bindinput="bindUserPassInput" placeholder="请输入密码" password="true" value="{{userPass}}"></input>
-  </view>
-  <button bindtap="loginBtnTap">登录</button>
-  <button bindtap="registeBtnTap">注册</button>
 </view>

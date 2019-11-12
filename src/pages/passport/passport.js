@@ -1,40 +1,34 @@
 // src/pages/passport.js
+
+import User from '../../classes/User.js'
+
 Page({
   data: {
-    userUsername: '',
-    userPass: ''
+    user: new User()
   },
-  onLoad(options) { },
-  async loginBtnTap() {
-    const waitLoginUser = new User(this.data.userUsername, this.data.userPass)
-    const res = await waitLoginUser.login()
-
-    wx.showToast({
-      title: res.msg,
-      icon: 'success',
-      duration: 2000
-    })
-
+  onLoad(options) {},
+  async userLoginTap() {
+    const user = new User(this.data.user)
+    const res = await user.login()
   },
-  async registeBtnTap() {
-    const waitRegisteUser = new User(this.data.userUsername, this.data.userPass)
-    const res = await waitRegisteUser.registe()
-
-    wx.showToast({
-      title: res.msg,
-      icon: 'success',
-      duration: 2000
-    })
-
+  async userRegisteTap() {
+    const user = new User(this.data.user)
+    const res = await user.registe()
   },
-  bindUserNameInput(e) {
+  userUsernameInput(e) {
     this.setData({
-      userUsername: e.detail.value
+      user: {
+        ...this.data.user,
+        username: e.detail.value
+      }
     })
   },
-  bindUserPassInput(e) {
+  userPassInput(e) {
     this.setData({
-      userPass: e.detail.value
+      user: {
+        ...this.data.user,
+        pass: e.detail.value
+      }
     })
   }
 })

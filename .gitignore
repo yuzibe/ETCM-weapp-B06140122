@@ -3,3 +3,6 @@ src/app.js
 src/classes/Api.js
 src/sitemap.json
 cloud/c13ee_passport/**
+!src/libs/cu-custom.js
+src/libs/**
+SRC/images/**

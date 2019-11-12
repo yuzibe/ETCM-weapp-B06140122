@@ -1,4 +1,6 @@
 /**app.wxss**/
+@import "/libs/colorui/main.wxss";
+@import "/libs/colorui/icon.wxss";
 
 .flex {
   display: flex;

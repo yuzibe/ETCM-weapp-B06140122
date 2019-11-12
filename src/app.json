@@ -1,13 +1,15 @@
 {
   "pages": [
+    "pages/index/index",
     "pages/passport/passport"
   ],
   "window": {
-    "backgroundColor": "#F6F6F6",
-    "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#F6F6F6",
-    "navigationBarTitleText": "mp of haqueo",
-    "navigationBarTextStyle": "black"
+    "navigationBarBackgroundColor": "#e8f4d9",
+    "navigationBarTitleText": "ETCM-weapp",
+    "navigationStyle": "custom"
+  },
+  "usingComponents": {
+    "cu-custom": "/libs/colorui/cu-custom"
   },
   "sitemapLocation": "sitemap.json",
   "style": "v2"

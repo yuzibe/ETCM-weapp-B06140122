@@ -2,9 +2,12 @@ import Cloud from 'Cloud'
 
 export default class User {
 
-  constructor(username, pass) {
-    this.username = username
-    this.pass = pass
+  constructor(user = {
+    username: null,
+    pass: null
+  }) {
+    this.username = user.username
+    this.pass = user.pass
   }
 
   async login() {
