@@ -1,0 +1,42 @@
+<!--src/pages/greet/greet.wxml-->
+<cu-custom bgColor="bg-gradual-blue" isCustom="{{true}}">
+  <view slot="content">大功告成</view>
+</cu-custom>
+
+<view class="bg-white padding-lr">
+  <view class="solids-bottom padding-xs flex align-center">
+    <view class="flex-sub text-center">
+      <view class="solid-bottom text-xsl padding">
+        <text class=" cuIcon-roundcheckfill text-green"></text>
+      </view>
+      <view class="padding">还差一步，你需要完善你的信息</view>
+    </view>
+  </view>
+</view>
+
+<form>
+  <view class="cu-form-group margin-top">
+    <view class="title">姓名</view>
+    <input placeholder="尊姓大名"></input>
+  </view>
+  <view class="cu-form-group">
+    <view class="title">身份</view>
+    <picker bindchange="pagePickerChange" value="{{index}}" range="{{picker}}">
+      <view class="picker">
+        {{index?picker[index]:'游客 Tourists'}}
+      </view>
+    </picker>
+  </view>
+
+  <!--student-->
+  <view wx:if="{{picker[index] == '学生 Student'}}">
+    <view class="cu-form-group">
+      <view class="title">学号</view>
+      <input placeholder="输入你的学号" bindinput="studentSidInput"></input>
+    </view>
+    <view class="padding flex flex-direction">
+      <button class="cu-btn bg-grey lg" style="width:100%" bindtap="pageToIndex">进入工训</button>
+    </view>
+  </view>
+
+</form>

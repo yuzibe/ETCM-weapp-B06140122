@@ -1,20 +1,19 @@
 import Api from 'Api'
 
 export default class Cloud {
-  static db = wx.cloud.database()
 
-  static passportUrl(url, user, handleRes, handleErr) {
-    const data = {
+  static passportUrl(url, data, handleRes, handleErr) {
+    const mutiData = {
+      ...data,
       url: url,
-      user: user
     }
+    console.log(mutiData)
     wx.cloud.callFunction({
       name: Api.passport.name,
-      data: data,
+      data: mutiData,
       success: (res) => handleRes(res),
       fail: (err) => handleErr(err),
     })
   }
-
 
 }

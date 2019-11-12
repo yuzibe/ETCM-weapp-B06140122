@@ -4,10 +4,12 @@ export default class User {
 
   constructor(user = {
     username: null,
-    pass: null
+    pass: null,
+    type: 'Tourists'
   }) {
     this.username = user.username
     this.pass = user.pass
+    this.type = user.type
   }
 
   async login() {
@@ -28,15 +30,30 @@ export default class User {
     })
   }
 
+  async update(type) {
+    return await new Promise((handleRes, handleErr) => {
+      Cloud.passportUrl('update', {
+        user: this,
+        type: type
+      }, handleRes, handleErr)
+    }).then((res) => {
+
+    })
+  }
+
   static loginService(user) {
     return new Promise((handleRes, handleErr) => {
-      Cloud.passportUrl('login', user, handleRes, handleErr)
+      Cloud.passportUrl('login', {
+        user: user
+      }, handleRes, handleErr)
     })
   }
 
   static registeService(user) {
     return new Promise((handleRes, handleErr) => {
-      Cloud.passportUrl('registe', user, handleRes, handleErr)
+      Cloud.passportUrl('registe', {
+        user: user
+      }, handleRes, handleErr)
     })
   }
 

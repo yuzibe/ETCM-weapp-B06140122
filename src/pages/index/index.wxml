@@ -22,7 +22,7 @@
     </view>
   </view>
 
-  <view class="padding flex flex-direction">
+  <view wx:if="{{user}}" class="padding flex flex-direction">
     <button class="cu-btn bg-grey lg" style="width: 100%" bindtap="pageToPassport">注册后体验更多功能</button>
   </view>
 

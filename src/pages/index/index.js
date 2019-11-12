@@ -1,4 +1,6 @@
 // src/pages/index/index.js
+import User from '../../classes/User'
+
 Page({
 
 
@@ -39,6 +41,7 @@ Page({
       name: '通知'
     }],
     gridCol: 4,
+    user: new User()
   },
 
 

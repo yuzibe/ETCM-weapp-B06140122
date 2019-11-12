@@ -1,6 +1,6 @@
 // src/pages/passport.js
 
-import User from '../../classes/User.js'
+import User from '../../classes/User'
 
 Page({
   data: {
@@ -14,6 +14,10 @@ Page({
   async userRegisteTap() {
     const user = new User(this.data.user)
     const res = await user.registe()
+    wx.setStorageSync('user', res.data.user)
+    wx.navigateTo({
+      url: '/pages/greet/greet'
+    })
   },
   userUsernameInput(e) {
     this.setData({
