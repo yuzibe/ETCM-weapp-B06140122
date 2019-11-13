@@ -7,7 +7,8 @@ Page({
 
   data: {
     student: {
-      sid: ''
+      sid: '',
+      realName: ''
     },
     index: null,
     picker: ['学生 Student', '教师 Teacher'],
@@ -22,33 +23,33 @@ Page({
       index: e.detail.value
     })
   },
-  pageToIndex() {
+  async pageToIndex() {
     if (this.data.picker[this.data.index] == '学生 Student') {
-
-      const user = new User(wx.getStorageSync('user'))
-      user.update('Students')
-
-      const student = new Student({
-        ...wx.getStorageSync('user'),
-        type: 'Students',
-        sid: this.data.student.sid
+      const uid = wx.getStorageSync('uid')
+      console.log(await User.getByid(uid).user)
+      console.log(await new User(await User.getByid(uid).user))
+      await new User(await User.getByid(uid).user).update('Students', {
+        ...this.data.student
       })
-
-      wx.removeStorageSync('user')
-      wx.setStorageSync('student', student)
-
-
-
-
+      wx.navigateTo({
+        url: '/pages/index/index'
+      })
     }
-    wx.navigateTo({
-      url: '/pages/index/index'
-    })
+
   },
   studentSidInput(e) {
     this.setData({
       student: {
+        ...this.data.student,
         sid: e.detail.value
+      }
+    })
+  },
+  studentRealNameInput(e) {
+    this.setData({
+      student: {
+        ...this.data.student,
+        realName: e.detail.value
       }
     })
   }

@@ -30,9 +30,20 @@ export default class User {
     })
   }
 
-  async update(type) {
+  static async getByid(uid) {
+    return await new Promise((handleRes, handleErr) => {
+      Cloud.passportUrl('get', {
+        uid: uid
+      }, handleRes, handleErr)
+    }).then((res) => {
+      return res
+    })
+  }
+
+  async update(type, data) {
     return await new Promise((handleRes, handleErr) => {
       Cloud.passportUrl('update', {
+        ...data,
         user: this,
         type: type
       }, handleRes, handleErr)

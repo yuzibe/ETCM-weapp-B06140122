@@ -10,14 +10,19 @@ Page({
   async userLoginTap() {
     const user = new User(this.data.user)
     const res = await user.login()
+    /* after use id to do sth. */
+    if (res.code = 20000)
+      wx.setStorageSync('uid', res.data._id)
   },
   async userRegisteTap() {
     const user = new User(this.data.user)
     const res = await user.registe()
-    wx.setStorageSync('user', res.data.user)
-    wx.navigateTo({
-      url: '/pages/greet/greet'
-    })
+    if (res.code = 20001) {
+      wx.setStorageSync('uid', res.data._id)
+      wx.navigateTo({
+        url: '/pages/greet/greet'
+      })
+    }
   },
   userUsernameInput(e) {
     this.setData({
