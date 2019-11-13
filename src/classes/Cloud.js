@@ -7,7 +7,6 @@ export default class Cloud {
       ...data,
       url: url,
     }
-    console.log(mutiData)
     wx.cloud.callFunction({
       name: Api.passport.name,
       data: mutiData,

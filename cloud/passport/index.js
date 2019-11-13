@@ -7,7 +7,7 @@ cloud.init({
 const db = cloud.database()
 const passportCollection = db.collection('c13ee_passport')
 
-exports.main = async(data, context) => {
+exports.main = async (data, context) => {
 
   /* passport registe */
   if (data.url == 'registe') {
@@ -33,10 +33,10 @@ exports.main = async(data, context) => {
         msg: '注册成功',
         data: res.data[0]
       } : {
-        status: 500,
-        msg: '未知错误',
-        data: res.data[0]
-      }
+          status: 500,
+          msg: '未知错误',
+          data: res.data[0]
+        }
     } else {
       return {
         status: 200,
@@ -52,13 +52,14 @@ exports.main = async(data, context) => {
   /* passport login */
   if (data.url == 'login') {
 
-    /*  */
+    /* check username and password */
     const res = await passportCollection.where({
       user: {
         username: data.user.username,
         pass: data.user.pass,
       }
     }).get()
+
 
     if (res.data.length == 0) {
       return {
@@ -70,6 +71,9 @@ exports.main = async(data, context) => {
         }
       }
     }
+
+
+    /* return passport */
     if (res.data.length == 1) {
       return {
         status: 200,
@@ -80,5 +84,20 @@ exports.main = async(data, context) => {
     }
   }
 
+  if (data.url = 'update') {
+    return await passportCollection.where({
+      user: {
+        username: data.user.username,
+      }
+    }).update({
+      data: {
+        student: {
+          ...data.user,
+          type: data.type,
+        }
+      },
+    })
+
+  }
 
 }
