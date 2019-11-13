@@ -26,11 +26,11 @@ Page({
   async pageToIndex() {
     if (this.data.picker[this.data.index] == '学生 Student') {
       const uid = wx.getStorageSync('uid')
-      console.log(await User.getByid(uid).user)
-      console.log(await new User(await User.getByid(uid).user))
-      await new User(await User.getByid(uid).user).update('Students', {
+      const res = await User.getByid(uid)
+      await new User(res.data.user).update('Students', {
         ...this.data.student
       })
+
       wx.navigateTo({
         url: '/pages/index/index'
       })

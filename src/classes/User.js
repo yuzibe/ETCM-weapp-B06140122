@@ -36,7 +36,7 @@ export default class User {
         uid: uid
       }, handleRes, handleErr)
     }).then((res) => {
-      return res
+      return res.result
     })
   }
 
