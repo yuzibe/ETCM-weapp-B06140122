@@ -7,7 +7,7 @@ cloud.init({
 const db = cloud.database()
 const passportCollection = db.collection('c13ee_passport')
 
-exports.main = async (data, context) => {
+exports.main = async(data, context) => {
 
   /* passport registe */
   if (data.route == 'registe') {
@@ -33,10 +33,10 @@ exports.main = async (data, context) => {
         msg: '注册成功',
         data: res.data[0]
       } : {
-          status: 500,
-          msg: '未知错误',
-          data: res.data[0]
-        }
+        status: 500,
+        msg: '未知错误',
+        data: res.data[0]
+      }
     } else {
       return {
         status: 200,
@@ -94,8 +94,6 @@ exports.main = async (data, context) => {
     const res = await passportCollection.where({
       _id: data.uid,
     }).get()
-
-    console.log(res)
 
     if (res.data.length == 0) {
       return {
