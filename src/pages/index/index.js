@@ -44,6 +44,16 @@ Page({
     user: new User()
   },
 
+  async onShow() {
+    const uid = wx.getStorageSync('uid')
+    if (uid != null && uid != '') {
+      const res = await User.getByid(uid)
+      const user = new User(res.data.user)
+      this.setData({
+        user: user
+      })
+    }
+  },
 
   onLoad(options) {
 

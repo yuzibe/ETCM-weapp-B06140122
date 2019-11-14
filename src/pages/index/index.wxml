@@ -1,7 +1,6 @@
-<!--src/pages/index/index.wxml-->
+<!-- src/pages/index/index.wxml -->
 <scroll-view scroll-y="{{modalName==null}}" class="page {{modalName!=null?'show':''}}">
   <image src='/images/BasicsBg.png' mode='widthFix' class='png' style='width:100%;height:486rpx'></image>
-
   <swiper class="card-swiper {{DotStyle?'square-dot':'round-dot'}}" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500" bindchange="cardSwiper" indicator-color="#8799a3" indicator-active-color="#0081ff">
     <swiper-item wx:for="{{swiperList}}" wx:key class="{{cardCur==index?'cur':''}}">
       <view class="swiper-item">
@@ -10,7 +9,6 @@
       </view>
     </swiper-item>
   </swiper>
-
   <view class="cu-list grid col-{{gridCol}} {{gridBorder?'':'no-border'}}">
     <view class="cu-item" wx:for="{{iconList}}" wx:key wx:if="{{index<gridCol*2}}">
       <view class="cuIcon-{{item.icon}} text-{{item.color}}">
@@ -21,9 +19,37 @@
       <text>{{item.name}}</text>
     </view>
   </view>
-
-  <view wx:if="{{user}}" class="padding flex flex-direction">
-    <button class="cu-btn bg-grey lg" style="width: 100%" bindtap="pageToPassport">注册后体验更多功能</button>
+  <view wx:if="{{user.type == 'Tourists'}}" class="padding flex flex-direction">
+    <button class="cu-btn bg-grey lg" style="width: 100%" bindtap="pageToPassport">
+      注册后体验更多功能
+    </button>
   </view>
-
 </scroll-view>
+<view wx:if="{{user.type == 'Students'}}" class="cu-bar tabbar bg-white foot">
+  <view class="action">
+    <view class="cuIcon-cu-image">
+      <image src="/images/tabbar/basics_cur.png"></image>
+    </view>
+    <view class="text-green">元素</view>
+  </view>
+  <view class="action">
+    <view class="cuIcon-cu-image">
+      <image src="/images/tabbar/component.png"></image>
+    </view>
+    <view class="text-gray">组件</view>
+  </view>
+  <view class="action">
+    <view class="cuIcon-cu-image">
+      <image src="/images/tabbar/plugin.png"></image>
+      <view class="cu-tag badge">99</view>
+    </view>
+    <view class="text-gray">扩展</view>
+  </view>
+  <view class="action">
+    <view class="cuIcon-cu-image">
+      <image src="/images/tabbar/about.png"></image>
+      <view class="cu-tag badge"></view>
+    </view>
+    <view class="text-gray">关于</view>
+  </view>
+</view>
