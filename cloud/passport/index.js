@@ -84,8 +84,27 @@ exports.main = async(data, context) => {
     }
   }
 
-
-
+  /* passport update */
+  if (data.route == 'update') {
+    if (data.type == 'Students') {
+      return await passportCollection.where({
+        user: {
+          username: data.user.username,
+        }
+      }).update({
+        data: {
+          student: {
+            realName: data.realName,
+            sid: data.sid
+          },
+          user: {
+            ...data.user,
+            type: data.type
+          }
+        },
+      })
+    }
+  }
 
   /* passport get */
   if (data.route == 'get') {
@@ -116,29 +135,4 @@ exports.main = async(data, context) => {
       }
     }
   }
-
-
-
-
-
-  if (data.route == 'update' && data.type == 'Students') {
-    return await passportCollection.where({
-      user: {
-        username: data.user.username,
-      }
-    }).update({
-      data: {
-        student: {
-          realName: data.realName,
-          sid: data.sid
-        },
-        user: {
-          ...data.user,
-          type: data.type
-        }
-      },
-    })
-
-  }
-
 }

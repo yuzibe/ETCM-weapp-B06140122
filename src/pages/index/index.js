@@ -9,8 +9,9 @@ Page({
       bgImg: '/images/BasicsBg.png',
       swiperListCur: 0,
       gridCol: 4,
-    },
-    user: new User()
+      curPageIndex: 0,
+      user: new User()
+    }
   },
 
   async onShow() {
@@ -26,12 +27,14 @@ Page({
 
 
     await Pages.req('get', 'index', this.data.user.type, {}).then((res) => {
+      
       this.setData({
         pagesStatus: {
           ...res.data.pagesStatus,
           ...this.data.pagesStatus
         }
       })
+      console.log(this.data.pagesStatus)
     })
 
 
@@ -39,7 +42,7 @@ Page({
   },
 
   onLoad(options) {
-
+ 
   },
 
   cardSwiper(e) {
