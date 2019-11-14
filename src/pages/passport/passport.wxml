@@ -7,10 +7,10 @@
 <view class="padding text-center">
   <view class="padding-lr bg-white padding">
     <view class="solid-bottom padding">
-      <input bindinput="userUsernameInput" placeholder="请输入账号" value="{{userUsername}}"></input>
+      <input bindinput="userUsernameInput" placeholder="请输入账号" value="{{user.username}}"></input>
     </view>
     <view class="solid-bottom padding">
-      <input bindinput="userPassInput" placeholder="请输入密码" password="true" value="{{userPass}}"></input>
+      <input bindinput="userPassInput" placeholder="请输入密码" password="true" value="{{user.pass}}"></input>
     </view>
     <view class="flex row center">
       <view class="padding flex flex-direction" style="width=50%">

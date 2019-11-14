@@ -1,0 +1,9 @@
+<!--pages/notice/notice.wxml-->
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="backText">首页</view>
+  <view slot="content">工训须知</view>
+</cu-custom>
+
+<view class="padding bg-white">
+  <wemark md="{{pagesStatus.content}}"></wemark>
+</view>

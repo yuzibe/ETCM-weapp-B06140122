@@ -10,8 +10,8 @@ Page({
       swiperListCur: 0,
       gridCol: 4,
       curPageIndex: 0,
-      user: new User()
-    }
+    },
+    user: new User()
   },
 
   async onShow() {
@@ -26,6 +26,7 @@ Page({
     }
 
     await Pages.req('get', 'index', this.data.user, {}).then((res) => {
+      console.log(res)
       this.setData({
         pagesStatus: {
           ...res.data.pagesStatus,
@@ -55,6 +56,14 @@ Page({
     wx.navigateTo({
       url: '/pages/passport/passport'
     })
+  },
+
+  pageIconListItemTap(event) {
+    if(event.currentTarget.dataset.id == 'notice'){
+      wx.navigateTo({
+        url: '/pages/notice/notice'
+      })
+    }
   },
 
 })

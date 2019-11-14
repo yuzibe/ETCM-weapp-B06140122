@@ -6,13 +6,16 @@ Page({
   data: {
     user: new User()
   },
-  onLoad(options) {},
   async userLoginTap() {
     const user = new User(this.data.user)
     const res = await user.login()
     /* after use id to do sth. */
-    if (res.code = 20000)
+    if (res.code = 20000) {
       wx.setStorageSync('uid', res.data._id)
+      wx.navigateTo({
+        url: '/pages/index/index'
+      })
+    }
   },
   async userRegisteTap() {
     const user = new User(this.data.user)

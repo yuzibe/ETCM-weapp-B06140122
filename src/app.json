@@ -2,7 +2,8 @@
   "pages": [
     "pages/index/index",
     "pages/passport/passport",
-    "pages/greet/greet"
+    "pages/greet/greet",
+    "pages/notice/notice"
   ],
   "window": {
     "navigationBarBackgroundColor": "#e8f4d9",
