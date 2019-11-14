@@ -25,16 +25,13 @@ Page({
       })
     }
 
-
-    await Pages.req('get', 'index', this.data.user.type, {}).then((res) => {
-      
+    await Pages.req('get', 'index', this.data.user, {}).then((res) => {
       this.setData({
         pagesStatus: {
           ...res.data.pagesStatus,
           ...this.data.pagesStatus
         }
       })
-      console.log(this.data.pagesStatus)
     })
 
 
@@ -42,7 +39,7 @@ Page({
   },
 
   onLoad(options) {
- 
+
   },
 
   cardSwiper(e) {

@@ -10,4 +10,5 @@ export default class Student {
     this.sid = student.sid
     this.realName = student.realName
   }
+  
 }

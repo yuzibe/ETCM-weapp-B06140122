@@ -13,7 +13,11 @@ export default class User {
   }
 
   async login() {
-    return await User.loginService(this).then((res) => {
+    return new Promise((handleRes, handleErr) => {
+      Cloud.passport('login', {
+        user: this
+      }, handleRes, handleErr)
+    }).then((res) => {
       console.info(res.result)
       return res.result
     }, (err) => {
@@ -22,7 +26,11 @@ export default class User {
   }
 
   async registe() {
-    return await User.registeService(this).then((res) => {
+    return new Promise((handleRes, handleErr) => {
+      Cloud.passport('registe', {
+        user: this
+      }, handleRes, handleErr)
+    }).then((res) => {
       console.info(res.result)
       return res.result
     }, (err) => {
@@ -32,7 +40,7 @@ export default class User {
 
   static async getByid(uid) {
     return await new Promise((handleRes, handleErr) => {
-      Cloud.passportUrl('get', {
+      Cloud.passport('get', {
         uid: uid
       }, handleRes, handleErr)
     }).then((res) => {
@@ -42,29 +50,13 @@ export default class User {
 
   async update(type, data) {
     return await new Promise((handleRes, handleErr) => {
-      Cloud.passportUrl('update', {
+      Cloud.passport('update', {
         ...data,
         user: this,
         type: type
       }, handleRes, handleErr)
     }).then((res) => {
 
-    })
-  }
-
-  static loginService(user) {
-    return new Promise((handleRes, handleErr) => {
-      Cloud.passportUrl('login', {
-        user: user
-      }, handleRes, handleErr)
-    })
-  }
-
-  static registeService(user) {
-    return new Promise((handleRes, handleErr) => {
-      Cloud.passportUrl('registe', {
-        user: user
-      }, handleRes, handleErr)
     })
   }
 

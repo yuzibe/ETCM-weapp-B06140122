@@ -23,6 +23,7 @@ Page({
       index: e.detail.value
     })
   },
+
   async pageToIndex() {
     if (this.data.picker[this.data.index] == '学生 Student') {
       const uid = wx.getStorageSync('uid')
@@ -37,6 +38,7 @@ Page({
     }
 
   },
+  
   studentSidInput(e) {
     this.setData({
       student: {
@@ -45,6 +47,7 @@ Page({
       }
     })
   },
+
   studentRealNameInput(e) {
     this.setData({
       student: {

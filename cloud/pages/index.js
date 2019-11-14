@@ -11,7 +11,7 @@ exports.main = async(data, context) => {
 
   if (data.route == 'get') {
     /* index pages data */
-    if (data.url == 'index' && data.user.tpye == 'Students') {
+    if (data.url == 'index' && data.user.type == 'Students') {
       const res = await pagesCollection.where({
         url: data.url,
         userType: data.userType

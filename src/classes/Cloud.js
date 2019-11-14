@@ -2,7 +2,7 @@ import Api from 'Api'
 
 export default class Cloud {
 
-  static passportUrl(route, data, handleRes, handleErr) {
+  static passport(route, data, handleRes, handleErr) {
     const mutiData = {
       ...data,
       route: route,
@@ -15,12 +15,12 @@ export default class Cloud {
     })
   }
 
-  static pagesUrl(route, url, userType, data, handleRes, handleErr) {
+  static pages(route, url, user, data, handleRes, handleErr) {
     const mutiData = {
       ...data,
       route: route,
       url: url,
-      userType: userType
+      userType: user.type
     }
     wx.cloud.callFunction({
       name: Api.pages.name,
