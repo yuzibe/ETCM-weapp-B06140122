@@ -32,7 +32,6 @@ Page({
           ...this.data.pagesStatus
         }
       })
-      console.log(this.data.pagesStatus)
     })
 
 
@@ -45,7 +44,10 @@ Page({
 
   cardSwiper(e) {
     this.setData({
-      cardCur: e.detail.current
+      pagesStatus: {
+        ...this.data.pagesStatus,
+        swiperListCur: e.detail.current
+      }
     })
   },
 
