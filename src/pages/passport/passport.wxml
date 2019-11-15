@@ -5,6 +5,7 @@
 </cu-custom>
 
 <view class="padding text-center">
+
   <view class="padding-lr bg-white padding">
     <view class="solid-bottom padding">
       <input bindinput="userUsernameInput" placeholder="请输入账号" value="{{user.username}}"></input>
@@ -23,4 +24,5 @@
       </view>
     </view>
   </view>
+  
 </view>

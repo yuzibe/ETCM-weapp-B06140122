@@ -26,7 +26,6 @@ Page({
     }
 
     await Pages.req('get', 'index', this.data.user, {}).then((res) => {
-      console.log(res)
       this.setData({
         pagesStatus: {
           ...res.data.pagesStatus,

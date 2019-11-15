@@ -5,7 +5,7 @@
 </cu-custom>
 
 <view class="container" style="height:{{pagesStatus.editor.editorHeight - 64}}px;top:{{pagesStatus.editor.top}}px">
-  <editor id="editor" class="ql-container" showImgSize showImgToolbar showImgResize bindstatuschange="pageEditorStatusChange" read-only="{{pagesStatus.editor.readOnly}}" bindready="pageEditorReady">
+  <editor id="editor" class="ql-container" style="padding: 10px 10px {{pagesStatus.editor.readOnly?10:50}}px 10px;" showImgSize showImgToolbar showImgResize bindstatuschange="pageEditorStatusChange" read-only="{{pagesStatus.editor.readOnly}}" bindready="pageEditorReady">
   </editor>
 </view>
 

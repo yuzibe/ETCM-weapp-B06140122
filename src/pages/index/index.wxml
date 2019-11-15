@@ -27,10 +27,12 @@
 </scroll-view>
 
 <view wx:if="{{user.type == 'Students'}}" class="cu-bar tabbar bg-white foot">
+
   <view class="action" wx:for="{{pagesStatus.footList}}" wx:key>
     <view class="cuIcon-cu-image">
       <image src="{{item.src}}"></image>
     </view>
     <view class="text-{{index == pagesStatus.curPageIndex?'green':'gray'}}">{{item.name}}</view>
   </view>
+  
 </view>

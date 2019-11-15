@@ -9,7 +9,7 @@ Page({
       editor: {
         delta: null,
         top: getApp().globalData.CustomBar,
-        readOnly: false,
+        readOnly: true,
         formats: {},
         editorHeight: 300,
         keyboardHeight: 0,
@@ -113,14 +113,13 @@ Page({
     })
   },
   async pageEditorSubmit() {
-    new Promise((handleRes, handleErr)=>{
+    new Promise((handleRes, handleErr) => {
       this.editorCtx.getContents({
         success: (res) => {
           handleRes(res)
         }
       })
-    }).then((res)=>{
-      console.log(res.delta)
+    }).then((res) => {
       Pages.req('update', 'notice', this.data.user, {
         pagesStatus: {
           editor: {
@@ -130,47 +129,6 @@ Page({
       })
     })
   },
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
   async onShow() {
     const uid = wx.getStorageSync('uid')
@@ -190,8 +148,21 @@ Page({
           ...res.data.pagesStatus,
           editor: {
             ...this.data.pagesStatus.editor,
-            readOnly: !this.data.user.type == 'Admin',
+            readOnly: this.data.user.type == 'Admin' ? false : true,
           },
+        }
+      })
+      this.editorCtx.setContents({
+        delta: res.data.pagesStatus.editor.delta,
+        success: (res) => {
+          this.setData({
+            pagesStatus: {
+              ...this.data.pagesStatus,
+              editor: {
+                ...this.data.pagesStatus.editor,
+              },
+            }
+          })
         }
       })
     })
