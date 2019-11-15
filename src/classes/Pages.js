@@ -6,6 +6,7 @@ export default class Pages {
     return await new Promise((handleRes, handleErr) => {
       Cloud.pages(reqType, url, user, data, handleRes, handleErr)
     }).then((res) => {
+      console.log(res.result)
       return res.result
     })
   }

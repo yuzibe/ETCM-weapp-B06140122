@@ -22,6 +22,7 @@ export default class Cloud {
       url: url,
       userType: user.type
     }
+   
     wx.cloud.callFunction({
       name: Api.pages.name,
       data: mutiData,
