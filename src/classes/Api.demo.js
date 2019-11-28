@@ -7,5 +7,7 @@ export default class Api {
   static passport = {
     name: Api.prefix + 'passport'
   }
-
+  static pages = {
+    name: Api.prefix + 'pages'
+  }
 }
